@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loginRequest } from '../actions';
+import { loginUser } from '../actions';
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 import '../assets/style/components/Login.scss';
@@ -20,8 +20,7 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
+    props.loginUser(form, '/');
   };
   return (
     <section className="login">
@@ -73,6 +72,6 @@ const Login = (props) => {
 };
 
 const mapDispatchToProps = {
-  loginRequest
+  loginUser
 };
 export default connect(null, mapDispatchToProps)(Login);

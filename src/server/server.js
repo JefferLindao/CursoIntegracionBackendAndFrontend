@@ -101,8 +101,8 @@ app.post('/auth/sign-in', async function (req, res, next) {
 
         const { token, ...user } = data
         res.cookie('token', token, {
-          httpOnly: !config.dev,
-          secure: !config.dev,
+          httpOnly: !(ENV === 'development'),
+          secure: !(ENV === 'development'),
           //maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC
         })
 

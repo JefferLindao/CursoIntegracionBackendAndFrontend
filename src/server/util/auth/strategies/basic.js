@@ -17,7 +17,7 @@ passport.use(
           username: email
         },
         data: {
-          apiKeyToken: process.env.API_KEY_TOKEN
+          apikeyToken: process.env.API_KEY_TOKEN
         }
       })
       if (!data || status !== 200) {
