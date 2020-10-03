@@ -63,9 +63,9 @@ export const loginUser = ({ email, password }, redirectUrl) => {
     })
       .then(({ data }) => {
         document.cookie = `email=${data.user.email}`
-        document.cookie = `email=${data.user.name}`
-        document.cookie = `email=${data.user.id}`
-        document.cookie = `email=${data.user.token}`
+        document.cookie = `name=${data.user.name}`
+        document.cookie = `id=${data.user.id}`
+        document.cookie = `token=${data.user.token}`
         dispatch(loginRequest(data.user))
       })
       .then(() => {
