@@ -16,7 +16,7 @@ if (isDev) {
 
 module.exports = {
   entry,
-  mode: process.env.ENV,
+  mode: isDev ? 'development' : 'production',
   output: {
     path: path.resolve(__dirname, 'src/server/public'),
     filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
@@ -50,10 +50,11 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(js|jsx)$/,

@@ -81,7 +81,7 @@ const Login = (props) => {
 const mapDispatchToProps = {
   loginUser
 };
-Login.PropTypes = {
+Login.propTypes = {
   loginUser: PropTypes.func
 }
 export default connect(null, mapDispatchToProps)(Login);

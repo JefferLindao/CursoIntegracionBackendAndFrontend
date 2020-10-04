@@ -14,7 +14,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, preloadedState, composeEnhancers(applyMiddleware(tunk)));
 
 delete window.__PRELOADED_STATE__
-ReactDom.hydrate(
+ReactDom.render(
   <Provider store={store}>
     <Router history={history}>
       <App isLogged={(preloadedState.user.id)} />

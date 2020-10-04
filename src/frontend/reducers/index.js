@@ -15,8 +15,6 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload
       };
-    default:
-      return state;
     case 'LOGOUT_REQUEST':
       return {
         ...state,
@@ -31,9 +29,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         playing: state.trends.find((item) => item.id === Number(action.payload)) ||
-        state.original.find((item) => item.id === Number(action.payload)) ||
-        []
+          state.original.find((item) => item.id === Number(action.payload)) ||
+          []
       };
+    default:
+      return state;
   }
 };
 

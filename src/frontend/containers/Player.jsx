@@ -1,5 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import NotFount from './NotFound';
 import { getVideoSource } from '../actions';
@@ -24,6 +25,10 @@ const Player = (props) => {
     </div>
   ) : <NotFount />;
 };
+
+Player.propTypes = {
+  getVideoSource: PropTypes.func
+}
 
 const mapStateToProps = (state) => {
   return {
