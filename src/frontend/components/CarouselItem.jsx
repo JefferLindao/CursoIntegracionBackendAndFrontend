@@ -10,10 +10,10 @@ import imgDelete from '../assets/static/remove-icon.png';
 import { Link } from 'react-router-dom';
 
 const CarouselItem = (props) => {
-  const { id, cover, title, year, contentRating, duration, isList } = props;
+  const { id, cover, title, year, contentRating, duration, isList, source } = props;
   const handleSetFavorite = () => {
     props.setFavorite({
-      id, cover, title, year, contentRating, duration
+      id, cover, title, year, contentRating, duration, isList, source
     });
   };
   const handleDeleteFavorite = (itemId) => {
@@ -56,12 +56,14 @@ const CarouselItem = (props) => {
   );
 };
 
-CarouselItem.propType = {
+CarouselItem.propTypes = {
   cover: PropType.string,
   title: PropType.string,
   year: PropType.number,
   contentRating: PropType.string,
-  duration: PropType.number
+  duration: PropType.number,
+  deleteFavorite: PropType.func,
+  setFavorite: PropType.func,
 };
 const mapDispatchToProps = {
   setFavorite,
